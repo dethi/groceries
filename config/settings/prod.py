@@ -2,7 +2,12 @@
 Production settings:
 - configure HSTS
 - use WhiteNoise for serving static files
+- email via Mailgun
+- Sentry
 """
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
 from .base import *  # noqa
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
@@ -39,3 +44,7 @@ EMAIL_HOST_PASSWORD = env("MAILGUN_SMTP_PASSWORD")
 EMAIL_PORT = env.int("MAILGUN_SMTP_PORT")
 EMAIL_USE_TLS = True
 EMAIL_TIMEOUT = 3
+
+# Sentry
+
+sentry_sdk.init(dsn=env("SENTRY_DSN"), integrations=[DjangoIntegration()])
