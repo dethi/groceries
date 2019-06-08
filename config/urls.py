@@ -16,4 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-urlpatterns = [path("admin/", admin.site.urls)]
+import groceries.core.views as core
+import groceries.orders.views as orders
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("orders/", orders.OrderListView.as_view()),
+    path("webhook/inbound_email", core.inbound_email_webhook),
+]
