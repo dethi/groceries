@@ -1,7 +1,10 @@
 from django.shortcuts import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
 from .models import InboundEmail
 
 
+@csrf_exempt
 def inbound_email_webhook(request):
     if request.method == "POST":
         sender = request.POST.get("sender")
