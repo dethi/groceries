@@ -42,7 +42,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = []
 
-LOCAL_APPS = ["groceries.core"]
+LOCAL_APPS = ["groceries.core", "groceries.orders"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -112,3 +112,5 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = APPS_DIR / "media"
 MEDIA_URL = "/media/"
+
+AUTH_USER_MODEL = "core.User"
