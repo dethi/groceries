@@ -11,12 +11,15 @@ whitenoise = "*"
 django-extensions = "*"
 psycopg2-binary = "*"
 sentry-sdk = "*"
+beautifulsoup4 = "*"
+requests = "*"
 
 [dev-packages]
 pylint = "*"
 pylint-django = "*"
 pylint-common = "*"
 black = "*"
+mypy = "*"
 
 [requires]
 python_version = "3.7"

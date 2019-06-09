@@ -5,9 +5,9 @@ from . import models
 
 @admin.register(models.Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ("pk", "delivery_date")
+    list_display = ("delivery_date", "shoppers_name", "origin")
 
 
 @admin.register(models.Item)
 class ItemAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("product", "quantity", "unit_price", "total_price_pretty")
