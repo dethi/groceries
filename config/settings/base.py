@@ -114,3 +114,7 @@ MEDIA_ROOT = APPS_DIR / "media"
 MEDIA_URL = "/media/"
 
 AUTH_USER_MODEL = "core.User"
+
+# Mailgun
+
+MAILGUN_API_KEY = env("MAILGUN_API_KEY")
