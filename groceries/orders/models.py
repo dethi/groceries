@@ -28,5 +28,4 @@ class Item(models.Model):
     def total_price_pretty(self):
         return f"{self.total_price() / 100} €"
 
-    total_price_pretty.short_description = "Total Price"
-
+    total_price_pretty.short_description = "Total Price"  # type: ignore
