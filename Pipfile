@@ -12,7 +12,7 @@ django-extensions = "*"
 psycopg2-binary = "*"
 sentry-sdk = "*"
 beautifulsoup4 = "*"
-requests = "*"
+django-admin-display = "*"
 
 [dev-packages]
 pylint = "*"
