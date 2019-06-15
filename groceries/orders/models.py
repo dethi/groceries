@@ -40,10 +40,10 @@ class Order(models.Model):
     def pretty_price_per_shoppers(self):
         price_per_shoppers = self.price_per_shoppers()
         price_per_shoppers_str = ", ".join(
-            f"{k}={v/100:.2f}€" for k, v in price_per_shoppers.items()
+            f"{k}={round(v/100, 2)}€" for k, v in price_per_shoppers.items()
         )
         total = sum(price_per_shoppers.values())
-        return f"{price_per_shoppers_str} total={total/100:.2f}€"
+        return f"{price_per_shoppers_str} total={round(total/100, 2)}€"
 
     def __str__(self):
         return f"Order {self.pk} - {self.delivery_date}"
@@ -74,15 +74,15 @@ class Item(models.Model):
 
     @admin_display(short_description="Unit Price")
     def pretty_unit_price(self):
-        return f"{self.unit_price / 100} €"
+        return f"{round(self.unit_price / 100, 2)} €"
 
     @admin_display(short_description="Total Price")
     def pretty_total_price(self):
-        return f"{self.total_price() / 100} €"
+        return f"{round(self.total_price() / 100, 2)} €"
 
     @admin_display(short_description="Price Per Shares")
     def pretty_price_per_shares(self):
-        return ", ".join(f"{k}={v/100:.2f}€" for k, v in self.price_per_share().items())
+        return ", ".join(f"{k}={round(v/100), 2)}€" for k, v in self.price_per_share().items())
 
     def __str__(self):
         return f"Item {self.pk}"
