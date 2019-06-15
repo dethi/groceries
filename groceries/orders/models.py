@@ -82,7 +82,9 @@ class Item(models.Model):
 
     @admin_display(short_description="Price Per Shares")
     def pretty_price_per_shares(self):
-        return ", ".join(f"{k}={round(v/100), 2)}€" for k, v in self.price_per_share().items())
+        return ", ".join(
+            f"{k}={round(v/100, 2)}€" for k, v in self.price_per_share().items()
+        )
 
     def __str__(self):
         return f"Item {self.pk}"
