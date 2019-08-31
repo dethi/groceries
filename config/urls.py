@@ -14,13 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 
 import groceries.core.views as core
-import groceries.orders.views as orders
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("orders/", orders.OrderListView.as_view()),
     path("webhook/inbound_email", core.inbound_email_webhook),
+    re_path(r"^.*$", core.redirect_to_admin),
 ]

@@ -1,8 +1,0 @@
-<h1>Orders</h1>
-<ul>
-    {% for order in object_list %}
-    <li>{{ order.id }} - {{ order.delivery_date|date }}</li>
-    {% empty %}
-    <li>No order yet.</li>
-    {% endfor %}
-</ul>

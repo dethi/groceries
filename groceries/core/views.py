@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse, redirect
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import InboundEmail
@@ -15,3 +15,7 @@ def inbound_email_webhook(request):
         email.save()
 
     return HttpResponse("OK")
+
+
+def redirect_to_admin(request):
+    return redirect("admin:index", permanent=True)
