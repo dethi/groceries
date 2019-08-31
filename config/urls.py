@@ -18,6 +18,9 @@ from django.urls import path, re_path
 
 import groceries.core.views as core
 
+admin.site.site_title = "Groceries"
+admin.site.site_header = "Groceries"
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("webhook/inbound_email", core.inbound_email_webhook),
