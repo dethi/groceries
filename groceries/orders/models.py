@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import defaultdict
 
 from django.db import models
 from django.contrib.auth import get_user_model
@@ -27,9 +27,11 @@ class Order(models.Model):
 
     def price_per_shoppers(self):
         items = self.item_set.all()
-        acc = Counter()
+
+        acc = defaultdict(int)
         for item in items:
-            acc += Counter(item.price_per_share())
+            for k, v in item.price_per_share().items():
+                acc[k] += v
         return acc
 
     @admin_display(short_description="Shoppers Name")
