@@ -15,7 +15,7 @@ def parse_email(content: str) -> List[BasketItem]:
     soup = BeautifulSoup(content, "html.parser")
 
     headers = soup.find_all("th")
-    table_el = headers[0].find_parent("table")
+    table_el = headers[-1].find_parent("table")
     tbody_el = table_el.find("tbody")
     rows = tbody_el.find_all("tr")
 
